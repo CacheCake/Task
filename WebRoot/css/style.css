@@ -1,0 +1,171 @@
+@charset "UTF-8";
+
+/* Global reset
+-------------------------------------------------------------------*/
+
+	html,body,div,article,section,nav,aside,time,header,hgroup,footer,address,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,pre,form,blockquote,fieldset,input { margin:0; padding:0; }
+	h1,h2,h3,h4,h5,h6,pre,code,address,caption,cite,code,em,th { font-size:1em; font-weight:normal; font-style:normal; }
+	fieldset,img { border:none; }
+	caption,th { text-align:left; }
+	table { border-collapse:collapse; border-spacing:0; margin-bottom:10px; width:100%; }
+	ol,ul,li { list-style: none; }
+	iframe { float: right; width: 100%; }
+
+	p { margin:0 0 1em 0; padding:0; } /* Default link styling */
+	a { text-decoration:underline; }
+	li a { text-decoration:none; }
+	a:hover { text-decoration:none; position:relative; top:1px; } /* Float an element left with a margin */
+	a:active { position:relative; top:1px; } /* Float an element left with a margin */
+
+	.floatL						{ float:left; } /* Float an element right with a margin */
+	.floatR 					{ float:right; } /* Float an element right with a margin */
+	.italic 					{ font-style:italic; } /* Italisise */
+	.upper 						{ text-transform:uppercase; } /* Italisise */
+	.clear 						{ clear:both; }
+	.hideText					{ text-indent:-3000em; overflow:hidden; }
+	
+	.clearfix:after 			{ content:"."; display:block; height:0; clear:both; visibility:hidden; }
+
+	.opacityDeep				{ filter:alpha(opacity=9); -moz-opacity: 0.9; -khtml-opacity: 0.9; opacity: 0.9; }
+	.opacityLight				{ filter:alpha(opacity=7); -moz-opacity: 0.7; -khtml-opacity: 0.7; opacity: 0.7; }
+	.shadow_a					{ -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.8); -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.8); box-shadow: 0 0 5px rgba(0, 0, 0, 0.8); }
+	.shadow_b					{ -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 1); -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 1); box-shadow: 0 0 10px rgba(0, 0, 0, 1); }
+	.shadow_c					{ -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 1); -moz-box-shadow: inset 0 0 5px rgba(0, 0, 0, 1); box-shadow: inset 0 0 5px rgba(0, 0, 0, 1); }
+
+	.bg_1						{ background: url(/Lolit/images/bg_1.jpg); background-position: -10px -50px; }
+	
+	blockquote					{ padding:20px; margin:0 40px 20px 20px; clear:both; }
+
+	input,
+	select						{ filter:alpha(opacity=10); -moz-opacity: 1; -khtml-opacity: 1; opacity: 1; }
+
+
+/* Default
+-------------------------------------------------------------------*/
+
+	html, body 					{ font: normal 12px/1.6 Tahoma,"simsun","Microsoft Yahei"; }	
+	body 						{ padding:0; margin:0; background-color: black; }
+
+
+/* Template
+-------------------------------------------------------------------*/
+
+	#main 						{ margin: 0 auto; width: 1000px; }
+	#side_bar					{ width: 430px; height: 1200px; position: fixed; top: 0px; left: 0px; background-color: #000819; z-index: 150; }
+	#main_div					{ padding: 60px 0 0 445px; }
+	#panel_div					{ width: 1366px; height: 768px; margin: 0 auto; position: fixed; z-index: -50; top: 0; left: auto; }
+	#bg_main					{ width: 100%; height: 830px; background: url(/Lolit/images/bg_main.jpg); background-position: 50px 0; background-repeat: no-repeat; background-attachment:fixed; }
+	#nav_main					{ width: 100%; height: 40px; background-color: #e3e3e3; float: left; margin: 0 0 20px 0; position: fixed; top: 0px; left: 430px; z-index: 100; }
+	#nav_header					{ width: 100%; height: 40px; background-color: #e3e3e3; margin: 0 0 20px 0; position: fixed; top: 0px; left: 0px; z-index: 100; }
+
+
+/* Tools
+-------------------------------------------------------------------*/
+	.return_button				{ background: url(/Lolit/images/return_button.png) no-repeat; width: 63px; height: 62px; border: none; position: absolute; margin: -15px 0 0 20px; cursor: pointer; z-index: 200; }
+	.return_button:hover		{ background: url(/Lolit/images/return_button_hover.png) no-repeat; z-index: 200px; }
+	.return_button:active		{ background: url(/Lolit/images/return_button_active.png) no-repeat; z-index: 200px; }
+
+/* Home
+-------------------------------------------------------------------*/
+
+	.post_impor    				{ width: 530px; height: 240px; background-color: #000819; float: left; margin: 0 12px 12px 0; }
+	.post  						{ width: 259px; height: 240px; background-color: #000819; float: left; margin: 0 12px 12px 0; }
+
+	.post_header				{ width: 100%; height: 40px; background-color: #e3e3e3; color: #22324D; }
+	.post_section				{ width: 100%; height: 200px; color: #84ACE8; }
+
+
+/* Register
+-------------------------------------------------------------------*/
+
+	.register_article			{ width: 840px; margin: auto; }
+
+	.register_team				{ width: 840px; height: 450px; background-color: rgba(227,227,227,0.9); margin: 35px auto 0px auto; color: #22324D; }
+	.register_player			{ width: 840px; height: 300px; background-color: rgba(227,227,227,0.9); margin: 0px auto; color: #22324D; }
+	.register_submit			{ width: 840px; height: 150px; margin: 0px auto; color: #22324D; }
+
+	h2							{ font: bold 28px/35px Tahoma,"simsun","Microsoft Yahei"; text-align: center; padding: 15px 0 0 0; }
+	h3							{ font: bold 16px/30px "Microsoft Yahei"; text-align: center; }
+	h4							{ font: normal 14px/30px "Microsoft Yahei"; margin: 5px 0 20px 0; }
+	.li_align					{ margin-left: 25px; }
+	h4 small					{ margin: auto 10px auto 10px; color: grey; }
+	h4 span 					{ font-size: 20px; margin: 0 0 0 3px; }
+	section p  					{ font-size: 12px; color: grey; }
+	.button_span_a				{ font: bold 23px "Microsoft Yahei"; padding: 0 3px 0 3px; color: #000819; }
+	.button_span_b				{ font: bold 13px "Microsoft Yahei"; padding: 0 3px 0 3px; color: white; vertical-align: 3px; }
+
+	.ul_ps 						{ list-style-type: circle; color: grey; }
+	.ul_align					{ margin-left: -5px!important; }
+
+	.ul_form_b					{ width: 390px; margin: auto auto auto 30px; padding: 20px 0 0 0; float: left; }
+	.ul_form_a					{ width: 400px; margin: auto auto auto 60px; padding: 20px 0 0 0; float: left; }
+	.li_form					{ height: 30px; vertical-align: baseline; }
+	.li_logo					{ height: 150px; width: 700px; }
+
+	.figure_view				{ width: 140px; height: 140px; margin: 76px 5px 5px 410px; position: absolute; }
+	.img_view					{ width: 120px; height: 120px; vertical-align: top; float: left; }
+	.choose_logo				{ width: 100px; height: 45px; border: none; margin: 0 0 0 60px; background-color: rgba(0,0,0,0); color: #22324D; }
+	.unchoose_logo				{ width: 100px; height: 45px; border: none; margin: 0 0 0 60px; background-color: rgba(227,227,227,0.8); color: grey; }
+	.unchoose_logo:hover 		{ cursor: pointer; background-color: rgba(227,227,227,1); }
+	.li_logo div 				{ width: 100px; height: 150px; float: left; }
+	.li_logo label 				{ float: left; }
+	.li_logo aside 				{ width: 230px; height: 120px; color: grey; float: left; margin: 0 0 0 70px; padding: 5px 0 0 10px; border-left: 1px solid white; }
+	
+	.label_reg					{ width: 120px; line-height: 30px; display: inline-block; text-align: right; margin: 0 20px 0 0; }
+	.aside_ps					{ width: 250px; height: 250px; margin: 20px 20px 20px 50px; padding: 10px 0 0 20px; float: right; border-left: 1px solid white; }
+	li label     				{ margin: auto 3px auto 3px; }
+
+	input[type=checkbox]		{ vertical-align: middle; }
+	input[type=text],
+	input[type=password],
+	input[type=tel]				{ width: 170px; height: 26px; padding-left: 5px; border: none; }
+	input[type=file]			{ width: 170px; height: 26px; padding-left: 5px; }
+	input[type=number]			{ width: 60px; height: 26px; padding-left: 5px; border: none; }
+	select						{ width: 100px; height: 26px; padding-left: 5px; border: none; }
+	.bool_range					{ width: 30px; height: 26px; vertical-align: -8px; }
+	.submit_reg					{ width: 840px; height: 50px; background-color: #db7b17; border: none; color: white; vertical-align: }
+	.submit_reg:hover			{ background-color: #f99534; cursor: pointer; }
+
+
+/* Prompt & success
+-------------------------------------------------------------------*/
+
+	.prompt_panel				{ width: 840px; height: 520px; margin: 55px auto 0px auto; color: #22324D; background-color: rgba(227,227,227,0.9); }
+	.prompt_bg					{ background: url(/Lolit/images/mumu1.png) no-repeat; background-position: 0 220px; width: 840px; height: 520px; position: absolute; }
+
+	.apply_suc_panel			{ width: 840px; height: 500px; margin: 105px auto 0px auto; color: #22324D; background-color: rgba(227,227,227,0.9); }
+	.apply_suc_bg				{ background: url(/Lolit/images/tianshi1.png) no-repeat; width: 840px; height: 500px; position: absolute; margin: -100px 0 0 230px; }
+
+/* lot
+-------------------------------------------------------------------*/
+
+	.lot_panel					{ width: 100%; height: 230px; position: fixed; bottom: 0px; background-color: rgba(49,49,49,0.8); }
+	.sortition_panel			{ width: 85%; margin: 30px auto; }
+	.team_st_box				{ width: 110px; height: 140px; color: #e3e2ec; float: left; background-color: rgba(0,0,0,0.8); margin: 0 20px 20px 20px; padding: 5px; text-align: right; }
+	.team_st_box:hover 			{ cursor: pointer; background: rgba(28,28,28,0.8); color: #ccc; }
+	.team_st_box2				{ width: 110px; height: 140px; color: #e3e2ec; float: left; background-color: rgba(0,0,0,0.8); margin: 0 20px 20px 20px; padding: 5px; text-align: right; }
+	.team_st_box3				{ width: 110px; height: 140px; color: #333; float: left; background-color: rgba(227,227,227,0.8); margin: 0 20px 20px 20px; padding: 5px; text-align: right; }
+
+	.space_l250					{ width: 100%; height: 250px; float: left; }
+
+	.team_st_box img,
+	.team_st_box2 img,
+	.team_st_box3 img 			{ width: 110px; height: 110px; }
+
+	.lot_form 					{ width: 400px; height: 150px; margin: 45px auto; vertical-align: middle; }
+	.lot_form img  				{ width: 130px; height: 130px; margin: 0 30px 0 0; }
+	.lot_form input				{ margin: 55px 0 0 0; position: absolute; }
+	.lot_form button			{ margin: 55px 0 0 175px; position: absolute; border: none; height: 26px; width: 80px; background-color: #db7b17; color: #fff }
+	.lot_form button:hover 		{ cursor: pointer; background-color: #f99534; }
+	#lot_panel section 			{ width: 200px; margin: 100px auto; color: #e3e3e3; }
+
+
+
+
+
+
+
+
+
+
+

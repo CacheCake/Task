@@ -1,0 +1,140 @@
+@charset "UTF-8";
+
+/* Global reset
+-------------------------------------------------------------------*/
+
+	html,body,div,article,section,nav,aside,time,header,hgroup,footer,address,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,pre,form,blockquote,fieldset,input { margin: 0; padding: 0; }
+	h1,h2,h3,h4,h5,h6,pre,code,address,caption,cite,code,em,th { font-size: 1em; font-weight: normal; font-style: normal; }
+	label { display: inline-block; }
+	fieldset,img { border: none; }
+	caption,th { text-align: left; }
+	table { border-collapse: collapse; border-spacing: 0px; width: 100%; }
+	table td { padding: 0; }
+	ol,ul,li { list-style: none; }
+
+	p { margin:0 0 1em 0; padding: 0; } /* Default link styling */
+	a { text-decoration: underline; }
+	li a { text-decoration: none; }
+	a:hover { text-decoration: none; position: relative; } /* Float an element left with a margin */
+	a:active { position: relative; top: 1px; } /* Float an element left with a margin */
+
+	.floatL						{ float:left; } /* Float an element right with a margin */
+	.floatR 					{ float:right; } /* Float an element right with a margin */
+	.italic 					{ font-style:italic; } /* Italisise */
+	.upper 						{ text-transform:uppercase; } /* Italisise */
+	.clear 						{ clear:both; }
+	.hideText					{ text-indent:-3000em; overflow:hidden; }
+	
+	.clearfix:after 			{ content:"."; display:block; height:0; clear:both; visibility:hidden; }
+
+	.opacityDeep				{ filter:alpha(opacity=9); -moz-opacity: 0.9; -khtml-opacity: 0.9; opacity: 0.9; }
+	.opacityLight				{ filter:alpha(opacity=7); -moz-opacity: 0.7; -khtml-opacity: 0.7; opacity: 0.7; }
+	.shadow_a					{ -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.7); -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.7); box-shadow: 0 0 5px rgba(0, 0, 0, 0.7); }
+	.shadow_b					{ -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 1); -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 1); box-shadow: 0 0 10px rgba(0, 0, 0, 1); }
+	.shadow_c					{ -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.4); -moz-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.4); box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.4); }
+
+	.bg_1						{ background: url(/Lolit/images/bg_1.jpg); background-position: -10px -50px; }
+	
+	blockquote					{ padding:20px; margin:0 40px 20px 20px; clear:both; }
+
+	input,
+	select						{ filter:alpha(opacity=10); -moz-opacity: 1; -khtml-opacity: 1; opacity: 1; }
+
+
+/* Default
+-------------------------------------------------------------------*/
+
+	html, body 					{ font: normal 12px/1.6 Tahoma,"simsun","Microsoft Yahei"; }	
+	body 						{ padding:0; margin:0; background-color: #eeeeee; }
+
+
+/* Template
+-------------------------------------------------------------------*/
+
+	#main 						{ margin: 0 auto; width: 1000px; }
+	#side_bar					{ width: 430px; height: 1200px; position: fixed; top: 0px; left: 0px; background-color: #000819; z-index: 150; }
+	#main_div					{ padding: 60px 0 0 445px; }
+	#panel_div					{ width: 1366px; height: 768px; margin: 0 auto; position: fixed; z-index: -50; top: 0; left: auto; }
+	#bg_main					{ width: 100%; height: 830px; background: url(/Lolit/images/bg_main.jpg); background-position: 50px 0; background-repeat: no-repeat; background-attachment:fixed; }
+	#nav_main					{ width: 100%; height: 40px; background-color: #e3e3e3; float: left; margin: 0 0 20px 0; position: fixed; top: 0px; left: 430px; z-index: 100; }
+	#nav_header					{ width: 100%; height: 40px; background-color: #e3e3e3; margin: 0 0 20px 0; position: fixed; top: 0px; left: 0px; z-index: 100; }
+
+
+/* Tools
+-------------------------------------------------------------------*/
+	.return_button				{ background: url(/Lolit/images/return_button.png) no-repeat; width: 63px; height: 62px; border: none; position: absolute; margin: -15px 0 0 20px; cursor: pointer; z-index: 200; }
+	.return_button:hover		{ background: url(/Lolit/images/return_button_hover.png) no-repeat; z-index: 200px; }
+	.return_button:active		{ background: url(/Lolit/images/return_button_active.png) no-repeat; z-index: 200px; }
+
+
+
+/* Sign in
+-------------------------------------------------------------------*/
+	.SI_panel					{ width: 480px; height: 350px; margin: 120px auto; }
+	.SI_section					{ width: 480px; height: 350px; background-color: #352a54; text-align: center; }
+	.SI_button					{ width: 120px; height: 120px; float: left; background-color: #4c3d7a; border: none; color: #e3e3e3; }
+	.SI_button:hover 			{ cursor: pointer; background-color: #63559e!important; }
+	.SI_button:active 			{ background-color: #352a54; }
+	.SI_submit					{ width: 362px; height: 40px; background-color: #352a54; border: none; top: 90px; position: relative; color: #e3e3e3; }
+	.SI_submit:hover 			{ cursor: pointer; background-color: #63559e; }
+	.SI_submit:active 			{ background-color: #352a54; }
+
+	input[id=mAcName]			{ width: 175px!important; height: 35px; background-color: #e3e3e3; border: none; top: 55px; left: 59px; float: left; position: relative; padding-right: 5px; text-align: center; }
+	input[id=mPwd]				{ width: 175px!important; height: 35px; background-color: #e3e3e3; border: none; top: 55px; left: 61px; float: left; position: relative; padding-left: 5px; text-align: center; }
+
+/* Header
+-------------------------------------------------------------------*/
+	header[id=back_end_header]	{ width: 100%; height: 40px; background-color: #352a54; position: fixed; top: 0px; }
+	
+
+/* HR
+-------------------------------------------------------------------*/
+
+	.HR_panel					{ width: 960px; height: 550px; margin: 60px auto 0 auto; background-color: #ffffff; }
+	.member_div					{ margin: -7px auto auto 10px; float: left; padding: 5px; background-color: #ffeeee; }
+	.op_div						{ margin: -7px 0 0 35px; width: 150px; height: 300px; float: left; }
+
+	.HR_title					{ margin: 10px; color: #352a54; font-size: 14px; line-height: 25px; }
+	.search						{ width: 115px; height: 35px; background-color: #ffeeee; border: none; margin: 0; float: left; margin: 0 0 20px 0;}
+	.search_button				{ width: 35px; height: 35px; background-color: #4c3d7a; border: none; color: #e3e3e3; float: right; }
+	.addMember					{ width: 150px; height: 35px; background-color: #4c3d7a; border: none; color: #e3e3e3; float: left; }
+	.addMember:hover,
+	.search_button:hover		{ background-color: #63559e; cursor: pointer; }
+	.addMember:active,
+	.search_button:active		{ background-color: #352a54; cursor: pointer; }
+
+	.new_mem_table				{ width: 720px; height: 502px; margin: -7px auto auto 10px; float: left; background-color: #ffeeee; padding: 5px; }
+	.new_mem_table div 			{ width: 720px; background-color: #fff; padding: 10px 0 10px 0; }
+	.new_mem_table table		{ width: 640px; margin: 0 auto; }
+	.new_mem_table td 			{ width: 79px; height: 35px; background-color: #fff; border: 1px solid #ccc; }
+	.new_mem_table label		{ width: 79px; text-align: right; } 
+
+	input[type=checkbox]		{ vertical-align: middle; }
+	input[type=text],
+	input[type=password],
+	input[type=tel]				{ width: 230px; height: 35px; padding-left: 5px; border: none; }
+	input[type=file]			{ width: 230px; height: 35px; padding-left: 5px; border: none; }
+	input[type=number]			{ width: 60px; height: 35px; padding-left: 5px; }
+	select						{ width: 79px; height: 35px; padding-left: 5px; border-width: 0px; }
+	textarea 					{ width: 535px; height: 290px; border: none; }
+
+	.list_mem_bg				{ background-color: #ffeeee; }
+	.list_header				{ background-color: #fff!important; position: fixed; top: 0px; }
+	.list_tr td span 			{ font-size: 13px; color: grey; width: 100px; display: inline-block; }
+	.list_header td span		{ font-size: 13px; color:#352a54; width: 100px; display: inline-block; }
+	.list_tr td label			{ cursor: pointer; width: 200px; }
+	.list_header td label		{ cursor: pointer; width: 200px; color:#352a54; }
+	.list_mem_table				{ border-spacing: 0px; }
+	.list_mem_name				{ width: 615px; }
+	.list_tr td,				
+	.list_header td 			{ border-top: 1px white solid; padding: 5px 10px 5px 10px; height: 30px; }
+	.list_tr td:hover			{ background-color: white; -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.2); -moz-box-shadow: 0 0 5px rgba(0,0,0,0.2); box-shadow: 0 0 5px rgba(0,0,0,0.2); }
+	.list_mar					{ margin: 45px 0 0 0; }
+	.del_button					{ cursor: pointer; text-align: center; }
+	.op_span					{ text-align: center; color:#352a54; width: 55px; }
+
+
+
+
+
+
