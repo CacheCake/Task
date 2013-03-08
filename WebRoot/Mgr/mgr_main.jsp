@@ -29,9 +29,9 @@
 	<%@include file="/back_end_header.jsp"%>
 
 	<article class="HR_panel shadow_a" id="panel">
-		<header class="HR_title">HR</header>
+		<header class="HR_title">Tasks</header>
 		<section class="member_div shadow_c">
-			<iframe src="HR/member_list.jsp" height="497px" width="720px" frameborder="0" id="member_list"></iframe>
+			<iframe src="Mgr/task_list.jsp" height="497px" width="720px" frameborder="0" id="member_list"></iframe>
 		</section>
 		<section class="op_div">
 			<input type="search" class="search">

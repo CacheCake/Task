@@ -12,7 +12,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>Lolit后台管理 - HR</title>
+<title>Task后台管理 - HR</title>
 
 <meta charset="utf-8">
 <meta http-equiv="pragma" content="no-cache">
@@ -27,65 +27,45 @@
 
 </head>
 
-<body>
+<body onload="panelHeight(2)" onresize="panelHeight(2)">
 	<%@include file="/back_end_header.jsp"%>
 
-	<article class="HR_panel shadow_a">
+	<article class="HR_panel shadow_a" id="panel">
 		<header class="HR_title">HR - New member</header>
-		<section class="new_mem_table shadow_c">
-			<div>
+		<section class="new_mem_table shadow_c" id="member_list">
+			<div id="paper">
 				<table>
 					<tr>
-						<td><label>姓名：</label>
-						</td>
-						<td colspan="3"><input type="text">
-						</td>
-						<td><label>学号：</label>
-						</td>
-						<td colspan="3"><input type="text">
-						</td>
+						<td><label>姓名：</label></td>
+						<td colspan="3"><input type="text"></td>
+						<td><label>学号：</label></td>
+						<td colspan="3"><input type="text"></td>
 					</tr>
 					<tr>
-						<td><label>密码：</label>
-						</td>
-						<td colspan="7"><input type="password">
-						</td>
+						<td><label>密码：</label></td>
+						<td colspan="7"><input type="password"></td>
 					</tr>
 					<tr>
-						<td><label>确认密码：</label>
-						</td>
-						<td colspan="7"><input type="password">
-						</td>
+						<td><label>确认密码：</label></td>
+						<td colspan="7"><input type="password"></td>
 					</tr>
 					<tr>
-						<td><label>职务：</label>
-						</td>
-						<td><select></select>
-						</td>
-						<td><label>性别：</label>
-						</td>
-						<td><select></select>
-						</td>
-						<td><label>手机：</label>
-						</td>
-						<td colspan="3"><input type="tel">
-						</td>
+						<td><label>职务：</label></td>
+						<td><select></select></td>
+						<td><label>性别：</label></td>
+						<td><select></select></td>
+						<td><label>手机：</label></td>
+						<td colspan="3"><input type="tel"></td>
 					</tr>
 					<tr>
-						<td><label>院系年级：</label>
-						</td>
-						<td colspan="3"><select></select><select></select>
-						</td>
-						<td><label>宿舍地址：</label>
-						</td>
-						<td colspan="3"><select></select><select></select>
-						</td>
+						<td><label>院系年级：</label></td>
+						<td colspan="3"><select></select><select></select></td>
+						<td><label>宿舍地址：</label></td>
+						<td colspan="3"><select></select><select></select></td>
 					</tr>
 					<tr>
-						<td><label>备注：</label>
-						</td>
-						<td colspan="7"><textarea draggable="false"></textarea>
-						</td>
+						<td><label>备注：</label></td>
+						<td colspan="7"><textarea draggable="false"></textarea></td>
 					</tr>
 				</table>
 			</div>

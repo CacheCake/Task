@@ -7,7 +7,7 @@
 	<package name="signIn" namespace="/" extends="task">
 		<action name="signIn" class="action.SignInAction" method="DoSignIn">
 			<result name="HRSignInSuccess">/HR/hr_main.jsp</result>
-			<result name="MgrSignInSuccess">/HR/hr_main2.jsp</result>
+			<result name="MgrSignInSuccess">/Mgr/mgr_main.jsp</result>
 			<result name="StfSignInSuccess">/HR/hr_main3.jsp</result>
 			<result name="SignInFailed">/back_end_header.jsp</result>
 		</action>

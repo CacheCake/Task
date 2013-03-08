@@ -39,6 +39,7 @@
 
 	input,
 	select						{ filter:alpha(opacity=10); -moz-opacity: 1; -khtml-opacity: 1; opacity: 1; }
+	input[hidden=true]			{ display: none; }
 
 
 /* Default
@@ -119,7 +120,7 @@
 	textarea 					{ width: 535px; height: 290px; border: none; }
 
 	.list_mem_bg				{ background-color: #ffeeee; }
-	.list_header				{ background-color: #fff!important; position: fixed; top: 0px; }
+	.list_header				{ background-color: #fff!important; position: fixed; top: 0px; width: 100%; }
 	.list_tr td span 			{ font-size: 13px; color: grey; width: 100px; display: inline-block; }
 	.list_header td span		{ font-size: 13px; color:#352a54; width: 100px; display: inline-block; }
 	.list_tr td label			{ cursor: pointer; width: 200px; }
@@ -132,7 +133,19 @@
 	.list_mar					{ margin: 45px 0 0 0; }
 	.del_button					{ cursor: pointer; text-align: center; }
 	.op_span					{ text-align: center; color:#352a54; width: 55px; }
+	
+/* Mgr
+-------------------------------------------------------------------*/
 
+	.task_th					{ width: 230px; text-align: center; }
+	.task_div					{ width: 100%; margin: 50px 5px 0 5px; }
+	.task_box1					{ width: 225px; background-color: #fff; height: 70px; margin: 5px 0 0 0; }
+	.task_box2					{ width: 225px; background-color: #fff; height: 70px; margin: 5px 0 0 230px; }
+	.task_box3					{ width: 225px; background-color: #fff; height: 70px; margin: 5px 0 0 460px; }
+	
+	.task_box1:hover,
+	.task_box2:hover,
+	.task_box3:hover			{ cursor: pointer; background-color: #ddd; }
 
 
 
