@@ -29,14 +29,18 @@
 
 <body>
 	<div class="SI_panel">
-		<form action="signIn/signIn">
-			<button type="button" class="SI_button" onclick="chooseChannel('1',this)">HR</button>
-			<button type="button" class="SI_button" onclick="chooseChannel('2',this)">主管</button>
-			<button type="button" class="SI_button" onclick="chooseChannel('3',this)">员工</button>
+		<form action="signIn/signIn" method="post">
+			<button type="button" class="SI_button"
+				onclick="chooseChannel('1',this)">HR</button>
+			<button type="button" class="SI_button"
+				onclick="chooseChannel('2',this)">主管</button>
+			<button type="button" class="SI_button"
+				onclick="chooseChannel('3',this)">员工</button>
 			<button type="button" class="SI_button">...</button>
 			<section class="SI_section shadow_b">
-				<input type="text" id="mAcName" name="mAcName" placeholder="ID" required>
-				<input type="password" id="mPwd" name="mPwd" placeholder="Pw" required>
+				<input type="text" id="userId" name="userId" placeholder="ID" required> 
+				<input type="password" id="userPwd" name="userPwd" placeholder="Pw" required>
+				<input type="text" id="userRole" name="userRole" hidden="true" required> 
 				<button type="submit" class="SI_submit" id="mSign_in" disabled onclick="">请先选择权限通道</button>
 			</section>
 		</form>

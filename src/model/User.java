@@ -7,7 +7,7 @@ public class User {
 	private String uPwd;
 	private int uGender;
 	private String uHireDate;
-	private String uPosition;
+	private String uRole;
 	private String uQualification;
 	private String uProfessional;
 	private String uExprience;
@@ -55,12 +55,12 @@ public class User {
 		this.uHireDate = uHireDate;
 	}
 
-	public String getuPosition() {
-		return uPosition;
+	public String getuRole() {
+		return uRole;
 	}
 
-	public void setuPosition(String uPosition) {
-		this.uPosition = uPosition;
+	public void setuRole(String uRole) {
+		this.uRole = uRole;
 	}
 
 	public String getuQualification() {

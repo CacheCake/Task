@@ -14,13 +14,14 @@ public class SignInAction extends ActionSupport {
 
 	private int userId;
 	private String userPwd;
+	private int userRole;
 
 	public int getUserId() {
 		return userId;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUserId(String userId) {
+		this.userId = Integer.parseInt(userId);
 	}
 
 	public String getUserPwd() {
@@ -31,17 +32,41 @@ public class SignInAction extends ActionSupport {
 		this.userPwd = userPwd;
 	}
 
+	public int getUserRole() {
+		return userRole;
+	}
+
+	public void setUserRole(String userRole) {
+		this.userRole = Integer.parseInt(userRole);
+	}
+
 	// µÇÂ½servlet
 	public String DoSignIn() throws Exception {
 		UserDAO uDAO;
+		String retMess = "SignInFailed";
 		try {
 			uDAO = DAOFactory.getUserDAOInstance();
 			if (uDAO.doSelectForSignIn(getUserId(), getUserPwd())) {
-				System.out.println(1);
+				switch (getUserRole()) {
+				case 1:
+					retMess = "HRSignInSuccess";
+					break;
+				case 2:
+					retMess = "MgrSignInSuccess";
+					break;
+				case 3:
+					retMess = "StfSignInSuccess";
+					break;
+				default:
+					retMess = "SignInFailed";
+					break;
+				}
+			} else {
+				retMess = "SignInFailed";
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
-		return "SignInSuccess";
+		return retMess;
 	}
 }

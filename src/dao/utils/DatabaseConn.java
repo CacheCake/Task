@@ -10,7 +10,7 @@ import java.sql.PreparedStatement;
 
 public class DatabaseConn {
 	private static final String DBDRIVER = "com.mysql.jdbc.Driver";
-	private static final String DBURL = "jdbc:mysql://localhost:3306/lolit";
+	private static final String DBURL = "jdbc:mysql://localhost:3306/task";
 	private static final String DBUSER = "root";
 	private static final String DBPASSWORD = "root";
 

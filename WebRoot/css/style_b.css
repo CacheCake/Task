@@ -79,8 +79,8 @@
 	.SI_submit:hover 			{ cursor: pointer; background-color: #63559e; }
 	.SI_submit:active 			{ background-color: #352a54; }
 
-	input[id=mAcName]			{ width: 175px!important; height: 35px; background-color: #e3e3e3; border: none; top: 55px; left: 59px; float: left; position: relative; padding-right: 5px; text-align: center; }
-	input[id=mPwd]				{ width: 175px!important; height: 35px; background-color: #e3e3e3; border: none; top: 55px; left: 61px; float: left; position: relative; padding-left: 5px; text-align: center; }
+	input[id=userId]			{ width: 175px!important; height: 35px; background-color: #e3e3e3; border: none; top: 55px; left: 59px; float: left; position: relative; padding-right: 5px; text-align: center; }
+	input[id=userPwd]				{ width: 175px!important; height: 35px; background-color: #e3e3e3; border: none; top: 55px; left: 61px; float: left; position: relative; padding-left: 5px; text-align: center; }
 
 /* Header
 -------------------------------------------------------------------*/
