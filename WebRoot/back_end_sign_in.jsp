@@ -29,7 +29,7 @@
 
 <body>
 	<div class="SI_panel">
-		<form action="">
+		<form action="signIn/signIn">
 			<button type="button" class="SI_button" onclick="chooseChannel('1',this)">HR</button>
 			<button type="button" class="SI_button" onclick="chooseChannel('2',this)">主管</button>
 			<button type="button" class="SI_button" onclick="chooseChannel('3',this)">员工</button>

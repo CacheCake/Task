@@ -33,8 +33,7 @@
 	<article class="HR_panel shadow_a">
 		<header class="HR_title">HR</header>
 		<section class="member_div shadow_c">
-			<iframe src="HR/member_list.jsp" height="497px"
-				width="720px" frameborder="0" id="member_list"></iframe>
+			<iframe src="HR/member_list.jsp" height="497px" width="720px" frameborder="0" id="member_list"></iframe>
 		</section>
 		<section class="op_div">
 			<input type="search" class="search">
