@@ -1,5 +1,5 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"
-	contentType="text/html; charset=utf-8"%>
+<%@ page language="java" import="java.util.*,model.User"
+	pageEncoding="UTF-8" contentType="text/html; charset=utf-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -31,17 +31,25 @@
 	<table class="list_mem_table list_mar">
 		<section>
 			<tr class="list_header">
-				<td class="list_mem_name"><span>ID</span><label>姓名</label><span>职务</span><span>性别</span><span>手机</span>
+				<td class="list_mem_name"><span>ID</span><label>姓名</label><span>职务</span><span>性别</span><span>主管</span>
 				</td>
 				<td class="op_span">操作</td>
 			</tr>
-			<%for (int i=0; i<15; i++) { %>
+			<%
+				HttpSession se = request.getSession();
+				ArrayList<User> uList = (ArrayList<User>) se.getAttribute("uList");
+				for (int i = 0; i < uList.size(); i++) {
+					User user = uList.get(i);
+			%>
 			<tr class="list_tr">
-				<td class="list_mem_name" onclick="getArticle()"><span>1011610410</span><label>李哲浩</label>
-					<span>C-level</span><span>男</span><span>13752130586</span>
+				<td class="list_mem_name" onclick="getArticle()"><span><%=user.getuId()%></span><label><%=user.getuName()%></label>
+					<span><%=user.getuRole()%></span><span><%=user.getuGender()%></span><span><%=user.getuMgr()%></span>
 				</td>
 				<td class="del_button">...</td>
-			</tr><%} %>
+			</tr>
+			<%
+				}
+			%>
 		</section>
 	</table>
 </body>

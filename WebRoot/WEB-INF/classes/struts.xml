@@ -13,5 +13,6 @@
     </package>
 
 	<include file="signIn.xml"/>
+	<include file="hr.xml"/>
 
 </struts>

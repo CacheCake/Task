@@ -29,7 +29,7 @@
 
 <body>
 	<div class="SI_panel">
-		<form action="signIn/signIn" method="post">
+		<form action="signIn/DoSignIn" method="post">
 			<button type="button" class="SI_button"
 				onclick="chooseChannel('1',this)">HR</button>
 			<button type="button" class="SI_button"

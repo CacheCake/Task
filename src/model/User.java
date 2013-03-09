@@ -5,10 +5,10 @@ public class User {
 	private int uId;
 	private String uName;
 	private String uPwd;
-	private int uGender;
+	private String uGender;
 	private String uHireDate;
 	private String uRole;
-	private String uQualification;
+	private String uPosition;
 	private String uProfessional;
 	private String uExprience;
 	private String uBirthday;
@@ -39,11 +39,11 @@ public class User {
 		this.uPwd = uPwd;
 	}
 
-	public int getuGender() {
+	public String getuGender() {
 		return uGender;
 	}
 
-	public void setuGender(int uGender) {
+	public void setuGender(String uGender) {
 		this.uGender = uGender;
 	}
 
@@ -63,12 +63,12 @@ public class User {
 		this.uRole = uRole;
 	}
 
-	public String getuQualification() {
-		return uQualification;
+	public String getuPosition() {
+		return uPosition;
 	}
 
-	public void setuQualification(String uQualification) {
-		this.uQualification = uQualification;
+	public void setuPosition(String uPosition) {
+		this.uPosition = uPosition;
 	}
 
 	public String getuProfessional() {

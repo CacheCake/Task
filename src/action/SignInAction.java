@@ -1,11 +1,20 @@
 package action;
 
+import java.util.ArrayList;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import model.User;
+
+import org.apache.struts2.interceptor.ServletRequestAware;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 import dao.interfaces.UserDAO;
 import dao.utils.DAOFactory;
 
-public class SignInAction extends ActionSupport {
+public class SignInAction extends ActionSupport implements ServletRequestAware {
 
 	/**
 	 * 
@@ -15,6 +24,7 @@ public class SignInAction extends ActionSupport {
 	private int userId;
 	private String userPwd;
 	private int userRole;
+	private HttpServletRequest request;
 
 	public int getUserId() {
 		return userId;
@@ -40,13 +50,32 @@ public class SignInAction extends ActionSupport {
 		this.userRole = Integer.parseInt(userRole);
 	}
 
-	// µÇÂ½servlet
+	public HttpServletRequest getServletRequest() {
+		return request;
+	}
+
+	public void setServletRequest(HttpServletRequest request) {
+		this.request = request;
+	}
+
+	
+	
+	
+	
+	// µÇÂ½
 	public String DoSignIn() throws Exception {
-		UserDAO uDAO;
+		UserDAO uDAO = null;
 		String retMess = "SignInFailed";
 		try {
 			uDAO = DAOFactory.getUserDAOInstance();
-			if (uDAO.doSelectForSignIn(getUserId(), getUserPwd())) {
+			if (uDAO.doSelectForSignIn(getUserId(), getUserPwd(), getUserRole())) {
+
+				ArrayList<User> uList = new ArrayList<User>();
+				uList = (ArrayList<User>) uDAO.doSelectById(getUserId());
+				// ×¢²áSession
+				HttpSession session = request.getSession();
+				session.setAttribute("uList", uList);
+
 				switch (getUserRole()) {
 				case 1:
 					retMess = "HRSignInSuccess";
@@ -66,7 +95,14 @@ public class SignInAction extends ActionSupport {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				uDAO.closeDBC3();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		return retMess;
 	}
+
 }

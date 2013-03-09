@@ -5,8 +5,8 @@
 
 <struts>
 	<package name="signIn" namespace="/" extends="task">
-		<action name="signIn" class="action.SignInAction" method="DoSignIn">
-			<result name="HRSignInSuccess">/HR/hr_main.jsp</result>
+		<action name="DoSignIn" class="action.SignInAction" method="DoSignIn">
+			<result name="HRSignInSuccess" type="redirectAction">hr/ShowMemberList</result>
 			<result name="MgrSignInSuccess">/Mgr/mgr_main.jsp</result>
 			<result name="StfSignInSuccess">/HR/hr_main3.jsp</result>
 			<result name="SignInFailed">/back_end_header.jsp</result>
