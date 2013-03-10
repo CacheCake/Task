@@ -105,10 +105,12 @@
 	.search_button:active		{ background-color: #352a54; cursor: pointer; }
 
 	.new_mem_table				{ width: 720px; height: 502px; margin: -7px auto auto 10px; float: left; background-color: #ffeeee; padding: 5px; }
-	.new_mem_table div 			{ width: 720px; background-color: #fff; padding: 10px 0 10px 0; }
+	.new_mem_table div 			{ width: 720px; height:482px; background-color: #fff; padding: 10px 0 10px 0; }
 	.new_mem_table table		{ width: 640px; margin: 0 auto; }
 	.new_mem_table td 			{ width: 79px; height: 35px; background-color: #fff; border: 1px solid #ccc; }
 	.new_mem_table label		{ width: 79px; text-align: right; } 
+	.new_mem_table span			{ padding: 5px 0 0 10px; color: #666; }
+	.new_mem_table textarea		{ padding: 5px 0 0 10px; }
 
 	input[type=checkbox]		{ vertical-align: middle; }
 	input[type=text],

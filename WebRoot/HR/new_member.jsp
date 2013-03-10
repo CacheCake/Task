@@ -34,7 +34,10 @@
 		<form action="hr/NewMember" method="post">
 			<header class="HR_title">HR - New member</header>
 			<section class="new_mem_table shadow_c" id="member_list">
-
+				<%
+					ArrayList<String> mgrList = (ArrayList<String>) request
+							.getAttribute("mgrList");
+				%>
 				<div id="paper">
 					<table>
 						<tr>
@@ -59,9 +62,14 @@
 						</tr>
 						<tr>
 							<td><label>职务：</label></td>
-							<td><select name="userPosition"></select></td>
+							<td><select name="userPosition"><option>系统工程师</option>
+									<option>产品经理</option>
+									<option>视觉设计师</option>
+							</select></td>
 							<td><label>性别：</label></td>
-							<td><select name="userGender"></select></td>
+							<td><select name="userGender"><option>男</option>
+									<option>女</option>
+							</select></td>
 							<td><label>用户专业：</label></td>
 							<td colspan="3"><input type="text" name="userProfessional">
 							</td>
@@ -71,7 +79,14 @@
 							<td colspan="3"><input type="text" name="userExprience">
 							</td>
 							<td><label>主管：</label></td>
-							<td colspan="3"><select name="userMgr"></select></td>
+							<td colspan="3"><select name="userMgr">
+									<%
+										for (int i = 0; i < mgrList.size(); i++) {
+									%><option><%=mgrList.get(i)%></option>
+									<%
+										}
+									%>
+							</select></td>
 						</tr>
 						<tr>
 							<td><label>备注：</label></td>
@@ -83,8 +98,8 @@
 
 			</section>
 			<section class="op_div">
-				<button type="submit" class="addMember">Update</button>
-				<section class="op_div">
+				<button type="submit" class="addMember">New</button>
+			</section>
 		</form>
 	</article>
 

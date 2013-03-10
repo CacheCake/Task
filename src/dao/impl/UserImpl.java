@@ -125,4 +125,88 @@ public class UserImpl implements UserDAO {
 
 	}
 
+	@Override
+	public boolean doInsertMember(User user) throws Exception {
+		int uRole = 0;
+		if (user.getuRole().equals("管理员")) {
+			uRole = 1;
+		} else if (user.getuRole().equals("主管")) {
+			uRole = 2;
+		} else if (user.getuRole().equals("员工")) {
+			uRole = 3;
+		}
+		String sql = "INSERT INTO user (uName,uPwd,uRole,uGender,uPosition,uProfessional,uExprience,uMgr,uEducation) values ('"
+				+ user.getuName()
+				+ "','"
+				+ user.getuPwd()
+				+ "','"
+				+ uRole
+				+ "','"
+				+ user.getuGender()
+				+ "','"
+				+ user.getuPosition()
+				+ "','"
+				+ user.getuProfessional()
+				+ "','"
+				+ user.getuExprience()
+				+ "','"
+				+ user.getuMgr()
+				+ "','"
+				+ user.getuEducation() + "')";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			int inta = pstmt.executeUpdate();
+
+			if (inta > 0) {
+				return true;
+			}
+		} catch (Exception e) {
+			throw e;
+		}
+
+		return false;
+	}
+
+	@Override
+	public List<String> doSelectAllMgr(int uId) throws Exception {
+
+		String sql = "SELECT DISTINCT uMgr FROM user WHERE uMgr NOT IN (SELECT uMgr FROM user WHERE uId = '"
+				+ uId + "')";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+
+			ArrayList<String> mgrList = new ArrayList<String>();
+			while (rs.next()) {
+				mgrList.add(rs.getString("uMgr"));
+			}
+
+			return mgrList;
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+
+	@Override
+	public Boolean doUpdateMember(User user) throws Exception {
+
+		String sql = "UPDATE user SET uMgr = '" + user.getuMgr() + "', uEducation = '"
+				+ user.getuEducation() + "' WHERE uId = '"+user.getuId()+"'";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			int inta = pstmt.executeUpdate();
+
+			if (inta > 0) {
+				return true;
+			}
+		} catch (Exception e) {
+			throw e;
+		}
+
+		return false;
+	}
+
 }

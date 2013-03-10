@@ -39,3 +39,8 @@ function panelHeight(i) {
 		}
 	}
 }
+
+//跳转成员到详细
+function showMember(uId) {
+	parent.location.href = "hr/ShowMember?uId=" + uId;
+}

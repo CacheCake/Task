@@ -10,8 +10,20 @@
 			<result name="ShowMemberListFailed">/back_end_header.jsp</result>
 		</action>
 		<action name="NewMember" class="action.HRAction" method="InsertMember">
-			<result name="NewSuccess">hr/ShowMemberList</result>
+			<result name="NewSuccess" type="redirectAction">hr/ShowMemberList</result>
 			<result name="NewFailed">/back_end_header.jsp</result>
+		</action>
+		<action name="ShowMember" class="action.HRAction" method="ShowMember">
+			<result name="ShowMember">/HR/update_member.jsp</result>
+			<result name="ShowMemberFailed">/back_end_header.jsp</result>
+		</action>
+		<action name="ShowNewMember" class="action.HRAction" method="ShowNewMember">
+			<result name="ShowMember">/HR/new_member.jsp</result>
+			<result name="ShowMemberFailed">/back_end_header.jsp</result>
+		</action>
+		<action name="UpdateMember" class="action.HRAction" method="UpdateMember">
+			<result name="UpdateMember">/HR/update_member.jsp</result>
+			<result name="UpdateMemberFailed">/back_end_header.jsp</result>
 		</action>
 	</package>
 </struts>

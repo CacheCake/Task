@@ -42,7 +42,7 @@
 					User user = uList.get(i);
 			%>
 			<tr class="list_tr">
-				<td class="list_mem_name" onclick="getArticle()"><span><%=user.getuId()%></span><label><%=user.getuName()%></label>
+				<td class="list_mem_name"><span><%=user.getuId()%></span><label onclick="showMember(<%=user.getuId()%>)"><%=user.getuName()%></label>
 					<span><%=user.getuRole()%></span><span><%=user.getuGender()%></span><span><%=user.getuMgr()%></span>
 				</td>
 				<td class="del_button">...</td>

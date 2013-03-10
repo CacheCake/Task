@@ -36,7 +36,7 @@
 		<section class="op_div">
 			<input type="search" class="search">
 			<button class="search_button">S</button>
-				<a href="HR/new_member.jsp"><button class="addMember">New</button></a>
+				<a href="hr/ShowNewMember"><button class="addMember">New</button></a>
 		</section>
 	</article>
 

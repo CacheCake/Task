@@ -16,5 +16,13 @@ public interface UserDAO {
 	
 	// 查询用户,uId=0是查询全部
 	public List<User> doSelectById(int uId) throws Exception;
+	
+	// 新增成员
+	public boolean doInsertMember(User user) throws Exception;
 
+	// 查询所有主管名
+	public List<String> doSelectAllMgr(int uId) throws Exception;
+	
+	// 修改成员信息
+	public Boolean doUpdateMember(User user) throws Exception;
 }
