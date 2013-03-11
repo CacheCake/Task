@@ -1,5 +1,5 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"
-	contentType="text/html; charset=utf-8"%>
+<%@ page language="java" import="java.util.*,model.Task;"
+	pageEncoding="UTF-8" contentType="text/html; charset=utf-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -29,6 +29,10 @@
 
 <body class="list_mem_bg">
 	<table class="list_mem_table list_mar">
+		<%
+			HttpSession se = request.getSession();
+			ArrayList<Task> tList = (ArrayList<Task>) se.getAttribute("tList");
+		%>
 		<section>
 			<tr class="list_header">
 				<td class="task_th">未实施</td>
@@ -36,14 +40,21 @@
 				<td class="task_th">以完成</td>
 			</tr>
 			<div class="task_div">
+				<%System.out.println(tList.size());
+					for (int i = 0; i < tList.size(); i++) {
+						Task task = tList.get(i);
+						System.out.println(task.gettStatus());
+						if ("未实施".equals(task.gettStatus())) {
+				%><section class="task_box1 shadow_a"><%=task.gettName() %></section>
 				<%
-					for (int i = 0; i < 3; i++) {
+					} else if ("实施中".equals(task.gettStatus())) {
+				%><section class="task_box2 shadow_a">123</section>
+				<%
+					} else if ("已完成".equals(task.gettStatus())) {
 				%>
-				<section class="task_box1 shadow_a">123</section>
-				<section class="task_box1 shadow_a">123</section>
 				<section class="task_box3 shadow_a">123</section>
-				<section class="task_box2 shadow_a">123</section>
 				<%
+					}
 					}
 				%>
 			</div>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="mgr" namespace="/" extends="task">
+		<action name="ShowTaskList" class="action.MgrAction" method="ShowTaskList">
+			<result name="ShowTaskList">/Mgr/mgr_main.jsp</result>
+			<result name="ShowTaskListFailed">/back_end_header.jsp</result>
+		</action>
+	</package>
+</struts>

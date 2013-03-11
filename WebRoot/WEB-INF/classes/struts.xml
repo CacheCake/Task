@@ -14,5 +14,6 @@
 
 	<include file="signIn.xml"/>
 	<include file="hr.xml"/>
+	<include file="mgr.xml"/>
 
 </struts>
