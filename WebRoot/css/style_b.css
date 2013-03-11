@@ -98,7 +98,7 @@
 	.HR_title					{ margin: 10px; color: #352a54; font-size: 14px; line-height: 25px; }
 	.search						{ width: 115px; height: 35px; background-color: #ffeeee; border: none; margin: 0; float: left; margin: 0 0 20px 0;}
 	.search_button				{ width: 35px; height: 35px; background-color: #4c3d7a; border: none; color: #e3e3e3; float: right; }
-	.addMember					{ width: 150px; height: 35px; background-color: #4c3d7a; border: none; color: #e3e3e3; float: left; }
+	.addMember					{ width: 150px; height: 35px; background-color: #4c3d7a; border: none; color: #e3e3e3; float: left; margin: 0 0 10px 0; }
 	.addMember:hover,
 	.search_button:hover		{ background-color: #63559e; cursor: pointer; }
 	.addMember:active,
@@ -133,8 +133,13 @@
 	.list_header td 			{ border-top: 1px white solid; padding: 5px 10px 5px 10px; height: 30px; }
 	.list_tr td:hover			{ background-color: white; -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.2); -moz-box-shadow: 0 0 5px rgba(0,0,0,0.2); box-shadow: 0 0 5px rgba(0,0,0,0.2); }
 	.list_mar					{ margin: 45px 0 0 0; }
-	.del_button					{ cursor: pointer; text-align: center; }
+	
+	.op_button					{ cursor: pointer; text-align: center; }
 	.op_span					{ text-align: center; color:#352a54; width: 55px; }
+	.update_button				{ background: url(/Task/images/icons.png); background-position: -325px -52px; border: none; width: 20px; height: 20px; padding: 0; margin: 0 5px 0 0; }
+	.update_button:hover		{  background-position: -325px -27px; cursor: pointer; }
+	.del_button					{ background: url(/Task/images/icons.png); background-position: -250px -52px; border: none; width: 20px; height: 20px; padding: 0; }
+	.del_button:hover			{ background-position: -250px -27px; cursor: pointer; }
 	
 /* Mgr
 -------------------------------------------------------------------*/

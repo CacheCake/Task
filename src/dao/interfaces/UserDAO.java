@@ -25,4 +25,7 @@ public interface UserDAO {
 	
 	// 修改成员信息
 	public Boolean doUpdateMember(User user) throws Exception;
+	
+	// 删除成员
+	public boolean doDeleteMember(int uId) throws Exception;
 }

@@ -25,5 +25,9 @@
 			<result name="UpdateMember">/HR/update_member.jsp</result>
 			<result name="UpdateMemberFailed">/back_end_header.jsp</result>
 		</action>
+		<action name="DeleteMember" class="action.HRAction" method="DeleteMember">
+			<result name="DeleteMember" type="redirectAction">hr/ShowMemberList</result>
+			<result name="DeleteFailed">/back_end_header.jsp</result>
+		</action>
 	</package>
 </struts>

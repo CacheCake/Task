@@ -46,10 +46,7 @@ public class UserImpl implements UserDAO {
 			throws Exception {
 
 		// 验证密码
-		String sqlPwd = "SELECT uPwd FROM user WHERE uId = '" + uId + "'";
-		// 验证权限
-		String sqlRole = "SELECT * FROM user WHERE uRole = '" + uRole
-				+ "' OR uRole = 0";
+		String sqlPwd = "SELECT * FROM user WHERE uId = '" + uId + "'";
 
 		try {
 			pstmt = conn.prepareStatement(sqlPwd);
@@ -57,6 +54,16 @@ public class UserImpl implements UserDAO {
 
 			if (rs.next()) {
 				if (rs.getString("uPwd").equals(uPwd)) {
+					// 验证权限
+					String sqlRole = null;
+					if (rs.getInt("uRole") != 0) {
+						sqlRole = "SELECT * FROM user WHERE (uRole = '" + uRole
+								+ "' AND uId = '" + uId + "')";
+					} else {
+						sqlRole = "SELECT * FROM user";
+					}
+					System.out.println(sqlRole);
+					
 					pstmt = conn.prepareStatement(sqlRole);
 					rs = pstmt.executeQuery();
 					if (rs.next()) {
@@ -182,6 +189,7 @@ public class UserImpl implements UserDAO {
 			while (rs.next()) {
 				mgrList.add(rs.getString("uMgr"));
 			}
+			mgrList.add("主管");
 
 			return mgrList;
 		} catch (Exception e) {
@@ -192,9 +200,10 @@ public class UserImpl implements UserDAO {
 	@Override
 	public Boolean doUpdateMember(User user) throws Exception {
 
-		String sql = "UPDATE user SET uMgr = '" + user.getuMgr() + "', uEducation = '"
-				+ user.getuEducation() + "' WHERE uId = '"+user.getuId()+"'";
-		
+		String sql = "UPDATE user SET uMgr = '" + user.getuMgr()
+				+ "', uEducation = '" + user.getuEducation()
+				+ "' WHERE uId = '" + user.getuId() + "'";
+
 		try {
 			pstmt = conn.prepareStatement(sql);
 			int inta = pstmt.executeUpdate();
@@ -207,6 +216,27 @@ public class UserImpl implements UserDAO {
 		}
 
 		return false;
+	}
+
+	@Override
+	public boolean doDeleteMember(int uId) throws Exception {
+
+		String sql = "DELETE FROM user WHERE uId = '" + uId + "'";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			int inta = pstmt.executeUpdate();
+
+			if (inta > 0) {
+				return true;
+			}
+			System.out.println("delf");
+			return false;
+
+		} catch (Exception e) {
+			throw e;
+		}
+
 	}
 
 }

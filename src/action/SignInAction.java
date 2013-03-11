@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import model.User;
 
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ServletRequestAware;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -58,10 +59,6 @@ public class SignInAction extends ActionSupport implements ServletRequestAware {
 		this.request = request;
 	}
 
-	
-	
-	
-	
 	// µÇÂ½
 	public String DoSignIn() throws Exception {
 		UserDAO uDAO = null;
@@ -75,6 +72,9 @@ public class SignInAction extends ActionSupport implements ServletRequestAware {
 				// ×¢²áSession
 				HttpSession session = request.getSession();
 				session.setAttribute("uList", uList);
+				session.setAttribute("uRole", getUserRole());
+			
+				session.setAttribute("uId", getUserId());
 
 				switch (getUserRole()) {
 				case 1:
@@ -101,6 +101,22 @@ public class SignInAction extends ActionSupport implements ServletRequestAware {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}
+		return retMess;
+	}
+
+	// ÍË³ö
+	public String DoSignOut() throws Exception {
+		String retMess = "SignOutFailed";
+		try {
+			// ×¢ÏúSession
+			HttpSession session = request.getSession();
+			session.invalidate();
+			System.out.println(session);
+			retMess = "SignOutSuccess";
+
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		return retMess;
 	}

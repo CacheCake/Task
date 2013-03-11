@@ -172,7 +172,12 @@ public class HRAction extends ActionSupport {
 			user.setuPosition(getUserPosition());
 			user.setuExprience(getUserExprience());
 			user.setuProfessional(getUserProfessional());
-			user.setuMgr(getUserMgr());
+			String mgr = getUserMgr();
+			if("主管".equals(mgr)) {
+				user.setuMgr(getUserName());
+			} else {
+				user.setuMgr(getUserMgr());
+			}
 			user.setuEducation(getUserEducation());
 
 			if (uDAO.doInsertMember(user)) {
@@ -271,5 +276,27 @@ public class HRAction extends ActionSupport {
 		}
 		return retMess;
 
+	}
+	
+	//删除成员
+	public String DeleteMember() throws Exception {
+		
+		UserDAO uDAO = null;
+		String retMess = "DeleteFailed";
+
+		try {
+			uDAO = DAOFactory.getUserDAOInstance();
+
+			setUserId(Integer.parseInt(ServletActionContext.getRequest()
+					.getParameter("uId")));
+			
+			if (uDAO.doDeleteMember(getUserId())) {
+				return "DeleteMember";
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return retMess;
 	}
 }

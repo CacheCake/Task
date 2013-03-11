@@ -7,9 +7,13 @@
 	<package name="signIn" namespace="/" extends="task">
 		<action name="DoSignIn" class="action.SignInAction" method="DoSignIn">
 			<result name="HRSignInSuccess" type="redirectAction">hr/ShowMemberList</result>
-			<result name="MgrSignInSuccess">/Mgr/mgr_main.jsp</result>
+			<result name="MgrSignInSuccess" type="redirectAction">mgr/ShowTaskList</result>
 			<result name="StfSignInSuccess">/HR/hr_main3.jsp</result>
-			<result name="SignInFailed">/back_end_header.jsp</result>
+			<result name="SignInFailed">/error.jsp</result>
+		</action>
+		<action name="DoSignOut" class="action.SignInAction" method="DoSignOut">
+			<result name="SignOutSuccess">/</result>
+			<result name="SignOutFailed">/error.jsp</result>
 		</action>
 	</package>
 </struts>

@@ -8,7 +8,23 @@
 
 
 
+	<filter>
+		<filter-name>hrFilter</filter-name>
+		<filter-class>filter.HRFilter</filter-class>
+	</filter>
+	<filter>
+		<filter-name>hrActionFilter</filter-name>
+		<filter-class>filter.HRActionFilter</filter-class>
+	</filter>
 
+	<filter-mapping>
+		<filter-name>hrFilter</filter-name>
+		<url-pattern>/HR/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>hrActionFilter</filter-name>
+		<url-pattern>/hr/*</url-pattern>
+	</filter-mapping>
 
 
 
@@ -21,6 +37,7 @@
 		<filter-name>struts2</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+
 
 	<welcome-file-list>
 		<welcome-file>back_end_sign_in.jsp</welcome-file>

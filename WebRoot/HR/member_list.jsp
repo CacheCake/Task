@@ -33,7 +33,7 @@
 			<tr class="list_header">
 				<td class="list_mem_name"><span>ID</span><label>姓名</label><span>职务</span><span>性别</span><span>主管</span>
 				</td>
-				<td class="op_span">操作</td>
+				<td class="op_span">&nbsp;&nbsp;&nbsp;&nbsp;操作</td>
 			</tr>
 			<%
 				HttpSession se = request.getSession();
@@ -45,7 +45,7 @@
 				<td class="list_mem_name"><span><%=user.getuId()%></span><label onclick="showMember(<%=user.getuId()%>)"><%=user.getuName()%></label>
 					<span><%=user.getuRole()%></span><span><%=user.getuGender()%></span><span><%=user.getuMgr()%></span>
 				</td>
-				<td class="del_button">...</td>
+				<td class="op_button" id="op_button<%=i %>" onclick="hrOpButton(<%=i %>,<%=user.getuId()%>)">...</td>
 			</tr>
 			<%
 				}

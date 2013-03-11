@@ -37,34 +37,49 @@
 		User u = userList.get(0);
 	%>
 	<article class="HR_panel shadow_a" id="panel">
-		<form action="hr/UpdateMember?uId=<%=u.getuId() %>" method="post">
+		<form action="hr/UpdateMember?uId=<%=u.getuId()%>" method="post">
 			<header class="HR_title">HR - Update member</header>
 			<section class="new_mem_table shadow_c" id="member_list">
 
 				<div id="paper">
 					<table>
 						<tr>
-							<td><label>姓名：</label></td>
-							<td colspan="3"><span><%=u.getuName()%></span></td>
-							<td><label>权限：</label></td>
-							<td colspan="3"><span><%=u.getuRole()%></span></td>
+							<td><label>姓名：</label>
+							</td>
+							<td colspan="3"><span><%=u.getuName()%></span>
+							</td>
+							<td><label>权限：</label>
+							</td>
+							<td colspan="3"><span><%=u.getuRole()%></span>
+							</td>
 						</tr>
 						<tr>
-							<td><label>ID：</label></td>
-							<td colspan="7"><span><%=u.getuId()%></span></td>
+							<td><label>ID：</label>
+							</td>
+							<td colspan="7"><span><%=u.getuId()%></span>
+							</td>
 						</tr>
 						<tr>
-							<td><label>职务：</label></td>
-							<td><span><%=u.getuPosition()%></span></td>
-							<td><label>性别：</label></td>
-							<td><span><%=u.getuGender()%></span></td>
-							<td><label>用户专业：</label></td>
-							<td colspan="3"><span><%=u.getuProfessional()%></span></td>
+							<td><label>职务：</label>
+							</td>
+							<td><span><%=u.getuPosition()%></span>
+							</td>
+							<td><label>性别：</label>
+							</td>
+							<td><span><%=u.getuGender()%></span>
+							</td>
+							<td><label>用户专业：</label>
+							</td>
+							<td colspan="3"><span><%=u.getuProfessional()%></span>
+							</td>
 						</tr>
 						<tr>
-							<td><label>用户经验：</label></td>
-							<td colspan="3"><span><%=u.getuExprience()%></span></td>
-							<td><label>主管：</label></td>
+							<td><label>用户经验：</label>
+							</td>
+							<td colspan="3"><span><%=u.getuExprience()%></span>
+							</td>
+							<td><label>主管：</label>
+							</td>
 							<td colspan="3">
 								<%
 									if (u.getuName().equals(u.getuMgr())) {
@@ -83,9 +98,11 @@
 							</td>
 						</tr>
 						<tr>
-							<td><label>备注：</label></td>
+							<td><label>备注：</label>
+							</td>
 							<td colspan="7"><textarea draggable="false"
-									name="userEducation"><%=u.getuEducation()%></textarea></td>
+									name="userEducation"><%=u.getuEducation()%></textarea>
+							</td>
 						</tr>
 					</table>
 				</div>
@@ -93,6 +110,8 @@
 			</section>
 			<section class="op_div">
 				<button type="submit" class="addMember">Update</button>
+				<button type="button" class="addMember"
+					onclick="delMember(<%=u.getuId()%>)">Delete</button>
 			</section>
 		</form>
 	</article>
