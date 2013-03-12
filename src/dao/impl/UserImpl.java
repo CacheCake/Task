@@ -6,6 +6,11 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
+
 import model.User;
 
 import dao.interfaces.UserDAO;
@@ -63,10 +68,14 @@ public class UserImpl implements UserDAO {
 						sqlRole = "SELECT * FROM user";
 					}
 					System.out.println(sqlRole);
-					
+
 					pstmt = conn.prepareStatement(sqlRole);
 					rs = pstmt.executeQuery();
 					if (rs.next()) {
+						HttpServletRequest request = ServletActionContext
+								.getRequest();
+						HttpSession se = request.getSession();
+						se.setAttribute("uR", rs.getInt("uRole"));
 						return true;
 					}
 				}

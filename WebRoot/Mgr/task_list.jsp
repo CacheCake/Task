@@ -40,19 +40,20 @@
 				<td class="task_th">以完成</td>
 			</tr>
 			<div class="task_div">
-				<%System.out.println(tList.size());
+				<%
 					for (int i = 0; i < tList.size(); i++) {
 						Task task = tList.get(i);
-						System.out.println(task.gettStatus());
 						if ("未实施".equals(task.gettStatus())) {
-				%><section class="task_box1 shadow_a"><%=task.gettName() %></section>
+				%>
+				<section class="task_box1 shadow_a"><label class="hidden_over_b"><%=task.gettName() %></label><p class="hidden_over_a"><%=task.gettDescription() %></p><aside><%=task.gettEndDate() %></aside></section>
 				<%
 					} else if ("实施中".equals(task.gettStatus())) {
-				%><section class="task_box2 shadow_a">123</section>
+				%>
+				<section class="task_box2 shadow_a"><label class="hidden_over_b"><%=task.gettName() %></label><button onclick="taskDone(<%=task.gettId() %>,'<%=task.gettName() %>')"></button><p class="hidden_over_a"><%=task.gettDescription() %></p><aside><%=task.gettEndDate() %></aside></section>
 				<%
 					} else if ("已完成".equals(task.gettStatus())) {
 				%>
-				<section class="task_box3 shadow_a">123</section>
+				<section class="task_box3 shadow_a"><label class="hidden_over_b"><%=task.gettName() %></label><button onclick="taskCollect(<%=task.gettId() %>,'<%=task.gettName() %>')"></button><p class="hidden_over_a"><%=task.gettDescription() %></p><aside><%=task.gettEndDate() %></aside></section>
 				<%
 					}
 					}

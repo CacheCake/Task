@@ -7,7 +7,15 @@
 	<package name="mgr" namespace="/" extends="task">
 		<action name="ShowTaskList" class="action.MgrAction" method="ShowTaskList">
 			<result name="ShowTaskList">/Mgr/mgr_main.jsp</result>
-			<result name="ShowTaskListFailed">/back_end_header.jsp</result>
+			<result name="ShowTaskListFailed">/error.jsp</result>
+		</action>
+		<action name="TaskDone" class="action.MgrAction" method="TaskDone">
+			<result name="TaskDone">/Mgr/mgr_main.jsp</result>
+			<result name="TaskDoneFailed">/error.jsp</result>
+		</action>
+		<action name="TaskCollect" class="action.MgrAction" method="TaskCollect">
+			<result name="TaskCollect">/Mgr/mgr_main.jsp</result>
+			<result name="TaskCollectFailed">/error.jsp</result>
 		</action>
 	</package>
 </struts>

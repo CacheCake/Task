@@ -69,3 +69,35 @@ function delMember(uId) {
 function signOut() {
 	window.location.href = "signIn/DoSignOut";
 }
+
+// TaskDone
+function taskDone(tId,tName) {
+	if (confirm("您确认要将任务：" + tName + " 设置为已完成吗?")) {
+		top.location.href = "mgr/TaskDone?tId=" + tId;
+	}
+}
+function taskCollect(tId,tName) {
+	if (confirm("您确认要将任务：" + tName + " 归档吗?")) {
+		top.location.href = "mgr/TaskCollect?tId=" + tId;
+	}
+}
+
+
+//显示新建任务的遮罩层
+var isOut = "in";
+function mOut() {
+	isOut = "out";
+}
+function mIn() {
+	isOut = "in";
+}
+function showAddPanel() {
+	var p = document.getElementById("add_above");
+	p.hidden = false;
+}
+function hidAddPanel() {
+	var p = document.getElementById("add_above");
+	if (isOut == "out") {
+		p.hidden = true;
+	}
+}

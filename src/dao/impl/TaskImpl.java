@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Task;
-import model.User;
 import dao.interfaces.TaskDAO;
 import dao.utils.DatabaseConn;
 
@@ -44,15 +43,20 @@ public class TaskImpl implements TaskDAO {
 
 		String sql = null;
 		if (uId == 0) {
-			sql = "SELECT * FROM task WHERE";
+			sql = "SELECT * FROM task ORDER BY tEndDate";
 		} else if (tId == 0) {
-			sql = "SELECT * FROM task WHERE user_uId = '" + uId
-					+ "' OR user_uMgr = '" + uId + "'";
+			sql = "SELECT * FROM task WHERE user_uId = '"
+					+ uId
+					+ "' OR user_uMgr = ANY (SELECT uName FROM user WHERE uId ='"
+					+ uId + "') ORDER BY tEndDate";
 		} else {
-			sql = "SELECT * FROM task WHERE user_uId = '" + uId
-					+ "' OR user_uMgr = '" + uId + "' AND tId = '" + tId + "'";
+			sql = "SELECT * FROM task WHERE user_uId = '"
+					+ uId
+					+ "' OR user_uMgr = ANY (SELECT uName FROM user WHERE uId ='"
+					+ uId + "') AND tId = '" + tId + "' ORDER BY tEndDate";
 		}
 
+		System.out.println(sql);
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -80,6 +84,44 @@ public class TaskImpl implements TaskDAO {
 			throw e;
 		}
 
+	}
+
+	@Override
+	public Boolean doUpdateStatusToDone(int tId) throws Exception {
+		String sql = "UPDATE task SET tStatus = 'ÒÑÍê³É' WHERE tId = '" + tId + "'";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			int inta = pstmt.executeUpdate();
+
+			if (inta > 0) {
+				return true;
+			}
+
+			return false;
+
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+
+	@Override
+	public Boolean doUpdateStatusToCollect(int tId) throws Exception {
+		String sql = "UPDATE task SET tStatus = '¹éµµ' WHERE tId = '" + tId + "'";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			int inta = pstmt.executeUpdate();
+
+			if (inta > 0) {
+				return true;
+			}
+
+			return false;
+
+		} catch (Exception e) {
+			throw e;
+		}
 	}
 
 }
