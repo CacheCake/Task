@@ -45,29 +45,47 @@
 		</section>
 	</article>
 
- 
+
 	<div class="above_div" id="add_above" hidden onclick="hidAddPanel()">
-		<section class="above_panel shadow_b" onmouseout="mOut()" onmouseover="mIn()">
-			<form action="" method="post">
+		<%
+			ArrayList<String> mgrList = (ArrayList<String>) request
+					.getAttribute("mgrList");
+		%>
+		<section class="above_panel shadow_b" onmouseout="mOut()"
+			onmouseover="mIn()">
+			<form action="mgr/NewTask" method="post">
 				<table class="newTask">
 					<tr>
 						<td class="newTaskTd">任务名称：</td>
-						<td><input type="text" placeholder="如：任务一"></td>
+						<td><input type="text" name="taskName" placeholder="如：任务一">
+						</td>
 					</tr>
 					<tr>
 						<td class="newTaskTd">描述：</td>
-						<td><textarea draggable="false"></textarea></td>
+						<td><textarea name="taskDescription"></textarea></td>
+					</tr>
+					<tr>
+						<td class="newTaskTd">实施人：</td>
+						<td><select name="user_uMgr">
+								<%
+									for (int i = 0; i < mgrList.size() - 1; i++) {
+								%><option><%=mgrList.get(i)%></option>
+								<%
+									}
+								%>
+						</select>
+						</td>
 					</tr>
 					<tr>
 						<td class="newTaskTd">开始日期：</td>
-						<td><input type="date"></td>
+						<td><input type="date" name="taskBeginDate"></td>
 					</tr>
 					<tr>
 						<td class="newTaskTd">结束日期：</td>
-						<td><input type="date"></td>
+						<td><input type="date" name="taskEndDate"></td>
 					</tr>
 				</table>
-				<button class="newTask_button">New task</button>
+				<button class="newTask_button" type="submit">New task</button>
 			</form>
 		</section>
 	</div>

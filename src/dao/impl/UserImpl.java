@@ -53,6 +53,7 @@ public class UserImpl implements UserDAO {
 		// —È÷§√‹¬Î
 		String sqlPwd = "SELECT * FROM user WHERE uId = '" + uId + "'";
 
+		System.out.println(sqlPwd);
 		try {
 			pstmt = conn.prepareStatement(sqlPwd);
 			rs = pstmt.executeQuery();

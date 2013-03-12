@@ -88,7 +88,8 @@ public class TaskImpl implements TaskDAO {
 
 	@Override
 	public Boolean doUpdateStatusToDone(int tId) throws Exception {
-		String sql = "UPDATE task SET tStatus = '已完成' WHERE tId = '" + tId + "'";
+		String sql = "UPDATE task SET tStatus = '已完成' WHERE tId = '" + tId
+				+ "'";
 
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -108,6 +109,38 @@ public class TaskImpl implements TaskDAO {
 	@Override
 	public Boolean doUpdateStatusToCollect(int tId) throws Exception {
 		String sql = "UPDATE task SET tStatus = '归档' WHERE tId = '" + tId + "'";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			int inta = pstmt.executeUpdate();
+
+			if (inta > 0) {
+				return true;
+			}
+
+			return false;
+
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+
+	@Override
+	public Boolean doInsertTask(Task task) throws Exception {
+		String sql = "INSERT INTO task (tName,tDescription,tBeginDate,tEndDate,tStatus,user_uId,user_uMgr) values ('"
+				+ task.gettName()
+				+ "','"
+				+ task.gettDescription()
+				+ "','"
+				+ task.gettBeginDate()
+				+ "','"
+				+ task.gettEndDate()
+				+ "','未实施','"
+				+ task.getUser_uId()
+				+ "','"
+				+ task.getUser_uMgr() + "')";
+
+		System.out.println(sql);
 
 		try {
 			pstmt = conn.prepareStatement(sql);

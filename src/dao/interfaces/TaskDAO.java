@@ -16,4 +16,7 @@ public interface TaskDAO {
 	
 	//¹éµµ
 	public Boolean doUpdateStatusToCollect(int tId) throws Exception;
+	
+	//ÐÂ½¨
+	public Boolean doInsertTask(Task task) throws Exception;
 }

@@ -10,12 +10,16 @@
 			<result name="ShowTaskListFailed">/error.jsp</result>
 		</action>
 		<action name="TaskDone" class="action.MgrAction" method="TaskDone">
-			<result name="TaskDone">/Mgr/mgr_main.jsp</result>
+			<result name="TaskDone" type="redirectAction">mgr/ShowTaskList</result>
 			<result name="TaskDoneFailed">/error.jsp</result>
 		</action>
 		<action name="TaskCollect" class="action.MgrAction" method="TaskCollect">
-			<result name="TaskCollect">/Mgr/mgr_main.jsp</result>
+			<result name="TaskCollect" type="redirectAction">mgr/ShowTaskList</result>
 			<result name="TaskCollectFailed">/error.jsp</result>
+		</action>
+		<action name="NewTask" class="action.MgrAction" method="NewTask">
+			<result name="NewTask" type="redirectAction">mgr/ShowTaskList</result>
+			<result name="NewTaskFailed">/error.jsp</result>
 		</action>
 	</package>
 </struts>

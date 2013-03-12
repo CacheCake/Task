@@ -84,7 +84,7 @@ function taskCollect(tId,tName) {
 
 
 //显示新建任务的遮罩层
-var isOut = "in";
+var isOut = "out";
 function mOut() {
 	isOut = "out";
 }
