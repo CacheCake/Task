@@ -71,19 +71,18 @@ function signOut() {
 }
 
 // TaskDone
-function taskDone(tId,tName) {
+function taskDone(tId, tName) {
 	if (confirm("您确认要将任务：" + tName + " 设置为已完成吗?")) {
 		top.location.href = "mgr/TaskDone?tId=" + tId;
 	}
 }
-function taskCollect(tId,tName) {
+function taskCollect(tId, tName) {
 	if (confirm("您确认要将任务：" + tName + " 归档吗?")) {
 		top.location.href = "mgr/TaskCollect?tId=" + tId;
 	}
 }
 
-
-//显示新建任务的遮罩层
+// 显示新建任务的遮罩层
 var isOut = "out";
 function mOut() {
 	isOut = "out";
@@ -100,4 +99,38 @@ function hidAddPanel() {
 	if (isOut == "out") {
 		p.hidden = true;
 	}
+}
+// 未实施界面
+var tId = 0;
+var rh = document.body.scrollHeight;
+function showUpdatePanela(taskId) {
+	tId = taskId;
+	var pa = document.getElementById("taska" + tId);
+	var p = document.getElementById("task" + tId);
+	pa.hidden = false;
+	p.hidden = true;
+
+	if (rh < document.body.scrollHeight) {
+		document.body.scrollTop = document.body.scrollTop + 200;
+	}
+}
+document.onmousedown = function() {
+	var pa = document.getElementById("taska" + tId);
+	var p = document.getElementById("task" + tId);
+	if (pa.hidden == false && isOut == "out") {
+		pa.hidden = true;
+		p.hidden = false;
+	}
+}
+top.document.onmousedown = function() {
+	var pa = document.getElementById("taska" + tId);
+	var p = document.getElementById("task" + tId);
+	if (pa.hidden == false && isOut == "out") {
+		pa.hidden = true;
+		p.hidden = false;
+	}
+}
+// topshow
+function top1() {
+	top.location.href = "mgr/ShowTaskList";
 }

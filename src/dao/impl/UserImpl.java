@@ -208,6 +208,27 @@ public class UserImpl implements UserDAO {
 	}
 
 	@Override
+	public List<String> doSelectAllStf() throws Exception {
+		String sql = "SELECT uName FROM user WHERE uRole = '3'";
+
+		System.out.println(sql);
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+
+			ArrayList<String> stfList = new ArrayList<String>();
+			while (rs.next()) {
+				System.out.println(rs.getString("uName"));
+				stfList.add(rs.getString("uName"));
+			}
+
+			return stfList;
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+
+	@Override
 	public Boolean doUpdateMember(User user) throws Exception {
 
 		String sql = "UPDATE user SET uMgr = '" + user.getuMgr()

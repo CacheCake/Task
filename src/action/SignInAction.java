@@ -65,6 +65,7 @@ public class SignInAction extends ActionSupport implements ServletRequestAware {
 		String retMess = "SignInFailed";
 		try {
 			uDAO = DAOFactory.getUserDAOInstance();
+			System.out.println(getUserRole());
 			if (uDAO.doSelectForSignIn(getUserId(), getUserPwd(), getUserRole())) {
 
 				ArrayList<User> uList = new ArrayList<User>();

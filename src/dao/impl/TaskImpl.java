@@ -157,4 +157,28 @@ public class TaskImpl implements TaskDAO {
 		}
 	}
 
+	@Override
+	public Boolean doUpdateTask(Task task) throws Exception {
+		String sql = "UPDATE task SET tName = '" + task.gettName()
+				+ "',tDescription = '" + task.gettDescription()
+				+ "',user_uMgr = '" + task.getUser_uMgr() + "' WHERE tId = '"
+				+ task.gettId() + "'";
+
+		System.out.println(sql);
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			int inta = pstmt.executeUpdate();
+
+			if (inta > 0) {
+				return true;
+			}
+
+			return false;
+
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+
 }

@@ -32,6 +32,9 @@
 		<%
 			HttpSession se = request.getSession();
 			ArrayList<Task> tList = (ArrayList<Task>) se.getAttribute("tList");
+
+			ArrayList<String> mgrList = (ArrayList<String>) se
+					.getAttribute("mgrList");
 		%>
 		<section>
 			<tr class="list_header">
@@ -40,20 +43,113 @@
 				<td class="task_th">以完成</td>
 			</tr>
 			<div class="task_div">
+
 				<%
 					for (int i = 0; i < tList.size(); i++) {
 						Task task = tList.get(i);
 						if ("未实施".equals(task.gettStatus())) {
 				%>
-				<section class="task_box1 shadow_a"><label class="hidden_over_b"><%=task.gettName() %></label><p class="hidden_over_a"><%=task.gettDescription() %></p><aside><%=task.gettEndDate() %></aside></section>
+
+
+				<!-- 1 -->
+
+				<section class="task_box1 shadow_a" id="task<%=task.gettId()%>">
+					<form action="mgr/UpdateTask?tId=<%=task.gettId()%>" method="post"
+						id="updateTask">
+						<label class="hidden_over_b"
+							onclick="showUpdatePanela(<%=task.gettId()%>)"><%=task.gettName()%></label>
+						<p class="hidden_over_a"><%=task.gettDescription()%></p>
+						<aside><%=task.gettEndDate()%></aside>
+				</section>
+
+				<section class="task_boxa shadow_a" id="taska<%=task.gettId()%>"
+					hidden onmouseout="mOut()" onmouseover="mIn()">
+					<input type="text" class="hidden_over_b"
+						value="<%=task.gettName()%>" name="taskName">
+					<textarea class="hidden_over_a" name="taskDescription"><%=task.gettDescription()%></textarea>
+					<select name="user_uMgr">
+						<%
+							for (int j = 0; j < mgrList.size() - 1; j++) {
+						%><option><%=mgrList.get(j)%></option>
+						<%
+							}
+						%>
+					</select>
+					<button type="submit" onclick="goSubmit()">Update</button>
+					<aside><%=task.gettBeginDate()%>
+						—
+						<%=task.gettEndDate()%></aside>
+					</form>
+				</section>
+
+
+
 				<%
 					} else if ("实施中".equals(task.gettStatus())) {
 				%>
-				<section class="task_box2 shadow_a"><label class="hidden_over_b"><%=task.gettName() %></label><button onclick="taskDone(<%=task.gettId() %>,'<%=task.gettName() %>')"></button><p class="hidden_over_a"><%=task.gettDescription() %></p><aside><%=task.gettEndDate() %></aside></section>
+
+				<!-- 2 -->
+
+				<section class="task_box2 shadow_a" id="task<%=task.gettId()%>">
+					<label class="hidden_over_b"
+						onclick="showUpdatePanela(<%=task.gettId()%>)"><%=task.gettName()%></label>
+					<button
+						onclick="taskDone(<%=task.gettId()%>,'<%=task.gettName()%>')"></button>
+					<p class="hidden_over_a"><%=task.gettDescription()%></p>
+					<aside><%=task.gettEndDate()%></aside>
+				</section>
+
+				<section class="task_boxb shadow_a" id="taska<%=task.gettId()%>"
+					hidden onmouseout="mOut()" onmouseover="mIn()">
+					<label class="hidden_over_b"><%=task.gettName()%></label>
+					<button
+						onclick="taskDone(<%=task.gettId()%>,'<%=task.gettName()%>')"></button>
+					<p class="hidden_over_a"><%=task.gettDescription()%></p>
+					<div>
+						实施人：<%=task.getUser_uMgr()%></div>
+					<div>
+						<a href="stf/ShowPlanL?tId=<%=task.gettId()%>"><button
+								class="plan_deti_button" type="button">Plans</button> </a>
+					</div>
+					<aside><%=task.gettBeginDate()%>
+						—
+						<%=task.gettEndDate()%></aside>
+				</section>
+
+
+
+
 				<%
 					} else if ("已完成".equals(task.gettStatus())) {
 				%>
-				<section class="task_box3 shadow_a"><label class="hidden_over_b"><%=task.gettName() %></label><button onclick="taskCollect(<%=task.gettId() %>,'<%=task.gettName() %>')"></button><p class="hidden_over_a"><%=task.gettDescription() %></p><aside><%=task.gettEndDate() %></aside></section>
+
+				<!-- 3 -->
+
+				<section class="task_box3 shadow_a" id="task<%=task.gettId()%>">
+					<label class="hidden_over_b"
+						onclick="showUpdatePanela(<%=task.gettId()%>)"><%=task.gettName()%></label>
+					<button
+						onclick="taskCollect(<%=task.gettId()%>,'<%=task.gettName()%>')"></button>
+					<p class="hidden_over_a"><%=task.gettDescription()%></p>
+					<aside><%=task.gettEndDate()%></aside>
+				</section>
+
+				<section class="task_boxc shadow_a" id="taska<%=task.gettId()%>"
+					hidden onmouseout="mOut()" onmouseover="mIn()">
+					<label class="hidden_over_b"><%=task.gettName()%></label>
+					<button
+						onclick="taskCollect(<%=task.gettId()%>,'<%=task.gettName()%>')"></button>
+					<p class="hidden_over_a"><%=task.gettDescription()%></p>
+					<div>
+						实施人：<%=task.getUser_uMgr()%></div>
+					<div>
+						<a href="stf/ShowPlanL?tId=<%=task.gettId()%>"><button
+								class="plan_deti_button" type="button">Plans</button> </a>
+					</div>
+					<aside><%=task.gettBeginDate()%>
+						—
+						<%=task.gettEndDate()%></aside>
+				</section>
 				<%
 					}
 					}

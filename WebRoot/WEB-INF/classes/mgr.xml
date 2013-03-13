@@ -9,6 +9,7 @@
 			<result name="ShowTaskList">/Mgr/mgr_main.jsp</result>
 			<result name="ShowTaskListFailed">/error.jsp</result>
 		</action>
+		
 		<action name="TaskDone" class="action.MgrAction" method="TaskDone">
 			<result name="TaskDone" type="redirectAction">mgr/ShowTaskList</result>
 			<result name="TaskDoneFailed">/error.jsp</result>
@@ -20,6 +21,10 @@
 		<action name="NewTask" class="action.MgrAction" method="NewTask">
 			<result name="NewTask" type="redirectAction">mgr/ShowTaskList</result>
 			<result name="NewTaskFailed">/error.jsp</result>
+		</action>
+		<action name="UpdateTask" class="action.MgrAction" method="UpdateTask">
+			<result name="UpdateTask">/Mgr/new_task.jsp</result>
+			<result name="UpdateTaskFailed">/error.jsp</result>
 		</action>
 	</package>
 </struts>

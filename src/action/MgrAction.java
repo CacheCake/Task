@@ -112,8 +112,8 @@ public class MgrAction {
 			HttpSession session = request.getSession();
 			setUserId((Integer) session.getAttribute("uId"));
 			setUserRole((Integer) session.getAttribute("uR"));
-			
-			//所有任务
+
+			// 所有任务
 			ArrayList<Task> tList = null;
 			System.out.println("role:" + getUserRole());
 			if (getUserRole() == 0) {
@@ -121,11 +121,11 @@ public class MgrAction {
 			} else {
 				tList = (ArrayList<Task>) tDAO.doSelectById(0, getUserId());
 			}
-			
-			//所有主管
+
+			// 所有主管
 			ArrayList<String> mgrList = (ArrayList<String>) uDAO
 					.doSelectAllMgr(getUserId());
-			
+
 			request.setAttribute("mgrList", mgrList);
 			session.setAttribute("tList", tList);
 
@@ -201,9 +201,42 @@ public class MgrAction {
 			task.setUser_uMgr(getUser_uMgr());
 
 			System.out.println(task);
-			
+
 			if (tDAO.doInsertTask(task)) {
 				retMess = "NewTask";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return retMess;
+
+	}
+
+	// 修改
+	public String UpdateTask() throws Exception {
+		TaskDAO tDAO = null;
+		String retMess = "UpdateTaskFailed";
+
+		try {
+			tDAO = DAOFactory.getTaskDAOInstance();
+			Task task = new Task();
+
+			setTaskId(Integer.parseInt(ServletActionContext.getRequest()
+					.getParameter("tId")));
+			task.settId(getTaskId());
+			task.settName(getTaskName());
+			task.settDescription(getTaskDescription());
+			task.setUser_uMgr(getUser_uMgr());
+
+			System.out.println(task);
+
+			if (tDAO.doUpdateTask(task)) {
+				HttpServletRequest request = ServletActionContext.getRequest();
+				HttpSession session = request.getSession();
+				session.setAttribute("top1", 1);
+				System.out.println(session.getAttribute("top1"));
+
+				retMess = "UpdateTask";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

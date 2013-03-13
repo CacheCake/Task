@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"
+<%@ page language="java" import="java.util.*,model.Task" pageEncoding="UTF-8"
 	contentType="text/html; charset=utf-8"%>
 <%
 	String path = request.getContextPath();
@@ -29,21 +29,23 @@
 
 <body onload="panelHeight(1)" onresize="panelHeight(1)">
 
-	<%
-		ArrayList<String> mgrList = (ArrayList<String>) request
-				.getAttribute("mgrList");
-				HttpSession ses = request.getSession();
-				ses.setAttribute("mgrList", mgrList);
-	%>
 
+	<%
+		ArrayList<Task> tList = (ArrayList<Task>) request
+				.getAttribute("tList");
+		HttpSession ses = request.getSession();
+		ses.setAttribute("tList", tList);
+	%>
+	
+	
 	<%@include file="/back_end_header.jsp"%>
 
 	<article class="HR_panel shadow_a" id="panel">
 		<header class="HR_title">
-			Tasks for
+			Plans for
 			<%=user.getuName()%></header>
 		<section class="member_div shadow_c">
-			<iframe src="Mgr/task_list.jsp" height="497px" width="720px"
+			<iframe src="Stf/plan_list.jsp" height="497px" width="720px"
 				frameborder="0" id="member_list"></iframe>
 		</section>
 		<section class="op_div">
@@ -54,27 +56,29 @@
 	</article>
 
 
+
 	<div class="above_div" id="add_above" hidden onclick="hidAddPanel()">
 		<section class="above_panel shadow_b" onmouseout="mOut()"
 			onmouseover="mIn()">
-			<form action="mgr/NewTask" method="post">
+			<form action="stf/NewPlan" method="post">
 				<table class="newTask">
 					<tr>
 						<td class="newTaskTd">任务名称：</td>
-						<td><input type="text" name="taskName" placeholder="如：任务一">
+						<td><input type="text" name="planName" placeholder="如：任务一">
 						</td>
 					</tr>
 					<tr>
 						<td class="newTaskTd">描述：</td>
-						<td><textarea name="taskDescription"></textarea>
+						<td><textarea name="planDescription"></textarea>
 						</td>
 					</tr>
 					<tr>
-						<td class="newTaskTd">实施人：</td>
-						<td><select name="user_uMgr">
+						<td class="newTaskTd">所属任务：</td>
+						<td><select name="taskId">
 								<%
-									for (int i = 0; i < mgrList.size() - 1; i++) {
-								%><option><%=mgrList.get(i)%></option>
+									for (int i = 0; i < tList.size(); i++) {
+									Task task = tList.get(i);
+								%><option><%=task.gettId()%></option>
 								<%
 									}
 								%>
@@ -82,12 +86,12 @@
 					</tr>
 					<tr>
 						<td class="newTaskTd">开始日期：</td>
-						<td><input type="date" name="taskBeginDate">
+						<td><input type="date" name="planBeginDate">
 						</td>
 					</tr>
 					<tr>
 						<td class="newTaskTd">结束日期：</td>
-						<td><input type="date" name="taskEndDate">
+						<td><input type="date" name="planEndDate">
 						</td>
 					</tr>
 				</table>
@@ -95,9 +99,6 @@
 			</form>
 		</section>
 	</div>
-
-
-
 
 </body>
 

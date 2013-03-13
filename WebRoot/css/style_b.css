@@ -152,10 +152,10 @@
 -------------------------------------------------------------------*/
 
 	.task_th					{ width: 210px; text-align: center; }
-	.task_div					{ width: 99%; margin: 50px 5px 0 5px; }
-	.task_box1					{ width: 210px; background-color: #fff; height: 90px; margin: 5px 0 0 0; padding: 5px 8px; }
-	.task_box2					{ width: 210px; background-color: #fff; height: 90px; margin: 5px 0 0 230px; padding: 5px 8px; }
-	.task_box3					{ width: 210px; background-color: #fff; height: 90px; margin: 5px 0 0 460px; padding: 5px 8px; }
+	.task_div					{ width: 99%; margin: 50px 5px 0 5px; height: 100%; }
+	.task_box1					{ width: 210px; background-color: #fff; height: 90px; margin: 5px 0 0 0; padding: 5px 8px; z-index: 100; }
+	.task_box2					{ width: 210px; background-color: #fff; height: 90px; margin: 5px 0 0 230px; padding: 5px 8px; z-index: 100; }
+	.task_box3					{ width: 210px; background-color: #fff; height: 90px; margin: 5px 0 0 460px; padding: 5px 8px; z-index: 100; }
 	
 	.task_box1:hover,
 	.task_box2:hover,
@@ -163,23 +163,38 @@
 	
 	.task_box1 label,
 	.task_box2 label,
-	.task_box3 label			{ font: 1.2em/1.6 "Microsoft Yahei"; width: 90%; margin: 0 0 7px 0; font-weight: bold; }
+	.task_box3 label,
+	.task_boxb label,
+	.task_boxc label			{ font: 1.2em/1.6 "Microsoft Yahei"; width: 90%; margin: 0 0 7px 0; font-weight: bold; }
+	
 	.task_box1 label:hover,
 	.task_box2 label:hover,
 	.task_box3 label:hover		{ cursor: pointer; }
 	
 	.task_box1 p,
 	.task_box2 p,
-	.task_box3 p				{ font: normal 0.9em/1.4 Tahoma,"simsun","Microsoft Yahei"; color: #666; width: 98%; height: 33px; text-indent: 1em; padding: 0 5px 0 5px; }
+	.task_box3 p				{ font: normal 0.9em/1.4 Tahoma,"simsun","Microsoft Yahei"; color: #666; width: 200px; height: 33px; text-indent: 1em; padding: 0 5px 0 5px; }
+	.task_boxb p,
+	.task_boxc p				{ font: normal 0.9em/1.4 Tahoma,"simsun","Microsoft Yahei"; color: #666; width: 200px; height: 213px; text-indent: 1em; padding: 0 5px 0 5px; }
+	
 	.task_box1 aside			{ background-color: #63559e; width: 100%+20px; color: #eee; height: 24px; text-align: right; margin: -8px -8px 0 -9px; padding: 5px 8px 0 0; }
 	.task_box2 aside			{ background-color: #7b6dc4; width: 100%+20px; color: #eee; height: 24px; text-align: right; margin: -8px -8px 0 -9px; padding: 5px 8px 0 0; }
-	.task_box3 aside			{ background-color: #9388e1; width: 100%+20px; color: #eee; height: 24px; text-align: right; margin: -8px -8px 0 -9px; padding: 5px 8px 0 0; }
+	.task_boxb aside			{ background-color: #7b6dc4; width: 100%+20px; color: #eee; height: 24px; text-align: right; margin: 34px -8px 0 -9px; padding: 5px 8px 0 0; }
+	.task_box3 aside 			{ background-color: #9388e1; width: 100%+20px; color: #eee; height: 24px; text-align: right; margin: -8px -8px 0 -9px; padding: 5px 8px 0 0; }
+	.task_boxc aside			{ background-color: #9388e1; width: 100%+20px; color: #eee; height: 24px; text-align: right; margin: 34px -8px 0 -9px; padding: 5px 8px 0 0; }
 	
-	.task_box2 button 			{ width: 25px; height: 25px; position: absolute; border: none; background: url(/Task/images/icons.png); background-position: -150px -52px; }
-	.task_box2 button:hover		{ background-position: -150px -27px; cursor: pointer; }
+	.task_box2 button,
+	.task_boxb button 			{ width: 25px; height: 25px; position: absolute; border: none; background: url(/Task/images/icons.png); background-position: -150px -52px; }
+	.task_box2 button:hover,
+	.task_boxb button:hover		{ background-position: -150px -27px; cursor: pointer; }
 
-	.task_box3 button 			{ width: 25px; height: 25px; position: absolute; border: none; background: url(/Task/images/icons.png); background-position: -225px -52px; }
-	.task_box3 button:hover		{ background-position: -225px -27px; cursor: pointer; }
+	.task_box3 button,
+	.task_boxc button 			{ width: 25px; height: 25px; position: absolute; border: none; background: url(/Task/images/icons.png); background-position: -225px -52px; }
+	.task_box3 button:hover,
+	.task_boxc button:hover		{ background-position: -225px -27px; cursor: pointer; }
+	
+	.task_boxb div,
+	.task_boxc div				{ width: 105px; height: 26px; font: normal 0.9em/1.4 Tahoma,"simsun","Microsoft Yahei"; color: #555; float: left; }
 	
 	.newTask							{ width: 100%; }
 	.newTask tr td						{ width: 90px; border-bottom: 1px solid #eee; }
@@ -192,5 +207,39 @@
 	.newTask_button:hover				{ cursor: pointer; background-color:  #63559e; }
 	.newTask_button:active				{ background-color: #352a54; }
 
-
-
+	.task_boxa						{ width: 210px; background-color: #fff; height: 300px; margin: 5px 0 -210px 0; padding: 5px 8px; position: relative; z-index: 200; }
+	.task_boxb						{ width: 210px; background-color: #fff; height: 300px; margin: 5px 0 -210px 230px; padding: 5px 8px; position: relative; z-index: 200; }
+	.task_boxc						{ width: 210px; background-color: #fff; height: 300px; margin: 5px 0 -210px 460px; padding: 5px 8px; position: relative; z-index: 200; }
+	
+	.task_boxa input[type=text]		{ font: 1.2em/1.6 "Microsoft Yahei"; width: 205px; margin: 0 0 1px 0; font-weight: bold; height: 20px; padding: 0; }
+	.task_boxa textarea 			{ font: normal 0.9em/1.4 Tahoma,"simsun","Microsoft Yahei"; color: #666; width: 200px; height: 214px; text-indent: 1em; padding: 8px 5px 0 5px; resize: none; }
+	.task_boxa select,
+	.task_boxb select,
+	.task_boxc select 				{ width: 100px; height: 26px; margin: 0 0 10px 0; }
+	.task_boxa aside				{ background-color: #63559e; width: 100%+20px; color: #eee; height: 24px; text-align: right; margin: -8px -8px 0 -9px; padding: 5px 8px 0 0; border: none; }
+	.task_boxa button				{ width: 85px; height: 26px; border: none; margin: 0 0 0 12px; color: #fff; background: #f99534; }
+	.plan_deti_button				{ width: 85px!important; height: 26px!important; border: none; margin: -6px 0 0 12px!important; color: #fff!important; background: #f99534!important; float: right; }
+	.task_boxa button:hover,
+	.plan_deti_button:hover			{ background-color: #db7b17!important; cursor: pointer; }
+	
+	.task_boxa input[type=text]:hover,
+	.task_boxa textarea:hover,
+	.task_boxa select:hover 		{ background-color: #eee; }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
